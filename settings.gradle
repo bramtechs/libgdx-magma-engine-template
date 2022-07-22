@@ -1,0 +1,9 @@
+rootDir.listFiles().each {
+   if (it.directory && new File(it, 'build.gradle').exists()) {
+      include ":${it.name}" 
+   }
+}
+
+include ':engine', ':engine-desktop'
+project(':engine').projectDir = new File('./magma-engine/engine')
+project(':engine-desktop').projectDir = new File('./magma-engine/engine-desktop')
